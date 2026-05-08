@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pressed — The Soiree Daily Newsletter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Questrial&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --espresso:#2B1E1A;
+    --cream:#F5EDE3;
+    --ink:#1F3A5F;
+    --latte:#C7A27C;
+    --terracotta:#C65A3A;
+    --soiree-peach:#E8AF74;
+    --card:#FBF6EF;
+    --border:#DFC8AE;
+  }
+
+  @page { size: A4; margin: 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--espresso);
+    font-family: Inter, system-ui, sans-serif;
+  }
+  .wrapper {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 22px 18px 36px;
+  }
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 34px;
+    padding: 28px 32px 32px;
+    background: var(--espresso);
+    color: var(--cream);
+    box-shadow: 0 18px 60px rgba(43,30,26,.16);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 240px; height: 240px;
+    border-radius: 999px;
+    background: var(--terracotta);
+    top: -86px; right: -82px;
+    opacity: .95;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 180px; height: 180px;
+    border-radius: 999px;
+    background: var(--latte);
+    bottom: -88px; right: 70px;
+    opacity: .42;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .kicker {
+    color: var(--soiree-peach);
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+  .brand {
+    margin: 0 0 12px;
+    font-family: Questrial, Inter, sans-serif;
+    font-size: clamp(74px, 12vw, 118px);
+    line-height: .9;
+    letter-spacing: -.055em;
+    color: var(--cream);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .subheading {
+    margin: 0 0 18px;
+    color: var(--soiree-peach);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .01em;
+  }
+  .headline {
+    margin: 0;
+    font-family: Lora, Georgia, serif;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--cream);
+  }
+  .subtitle {
+    max-width: 640px;
+    margin: 18px 0 0;
+    font-family: Lora, Georgia, serif;
+    font-size: 18px;
+    line-height: 1.62;
+    color: var(--cream);
+  }
+  .pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+  }
+  .pill {
+    border: 1px solid rgba(245,237,227,.28);
+    color: var(--cream);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(255,255,255,.04);
+  }
+  .community-pill {
+    color: var(--cream);
+    border-color: rgba(232,175,116,.55);
+    background: rgba(232,175,116,.09);
+  }
+
+  .story {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 30px;
+    padding: 28px 30px 26px;
+    margin: 18px 0;
+    box-shadow: 0 10px 30px rgba(43,30,26,.06);
+    break-inside: avoid;
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--ink);
+  }
+  .story h2 {
+    margin: 18px 0 16px;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -.04em;
+    color: var(--espresso);
+  }
+  .story p {
+    margin: 0;
+    font-family: Lora, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.68;
+    color: var(--espresso);
+  }
+  .button {
+    display: inline-block;
+    margin-top: 24px;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    background: var(--terracotta);
+    border-radius: 999px;
+    padding: 15px 22px;
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .footer {
+    margin-top: 24px;
+    padding: 22px 28px;
+    border-radius: 26px;
+    background: var(--espresso);
+    color: var(--cream);
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .footer span { color: var(--soiree-peach); font-weight: 500; }
+
+  @media (max-width: 700px) {
+    .wrapper { padding-left: 12px; padding-right: 12px; }
+    .hero { padding: 24px 22px 28px; }
+    .story { padding: 24px 22px; }
+    .logo { width: 88%; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrapper">
+    <section class="hero">
+      <div class="kicker">THĒ SOIRĒE EDITION / 796 9TH AVE / MAY 7, 2026</div>
+      <h1 class="brand">PRESSED</h1>
+      <p class="subheading">Three stories from your neighborhood.</p>
+      <div class="headline">Local news, served with your coffee.</div>
+      <p class="subtitle">Three stories selected for Hell’s Kitchen readers: one civic update, one culture read, and one neighborhood story worth knowing today.</p>
+      <div class="pills">
+        <div class="pill community-pill">Connect with your community through a 7-minute catch-up.</div>
+      </div>
+    </section>
+
+    <article class="story">
+      <div class="meta"><span>Housing</span><span>Gothamist / NYC-wide</span></div>
+      <h2>Will Mamdani’s Rent Guidelines Board back a freeze? Here comes the first test.</h2>
+      <p>The city’s Rent Guidelines Board is headed into a preliminary vote on whether rent-stabilized apartments could see an increase or a freeze. For renters, it is an early test of Mayor Zohran Mamdani’s promise to make the city more affordable.</p>
+      <a class="button" href="https://gothamist.com/news/will-mamdanis-rent-guidelines-board-back-a-freeze-here-comes-the-first-test" target="_blank" rel="noopener">Read full story</a>
+    </article>
+
+    <article class="story">
+      <div class="meta"><span>Arts &amp; Culture</span><span>Hell Gate / Garment District</span></div>
+      <h2>A 90-Year-Old NYC Printmaker Finally Gets His Hometown Due</h2>
+      <p>Hell Gate profiles Mohammad Omer Khalil, a 90-year-old Sudanese American printmaker who has spent decades connected to New York printmaking. A new retrospective gives the artist a long-overdue local spotlight.</p>
+      <a class="button" href="https://hellgatenyc.com/mohammad-omer-khalil-gets-his-due/" target="_blank" rel="noopener">Read full story</a>
+    </article>
+
+    <article class="story">
+      <div class="meta"><span>Parks</span><span>W42ST / Hell’s Kitchen</span></div>
+      <h2>DeWitt Clinton Park Marks 125 Years with a Volunteer-Led Revamp</h2>
+      <p>W42ST covers DeWitt Clinton Park’s 125th anniversary and a volunteer-led effort to refresh a neighborhood public space.</p>
+      <a class="button" href="https://w42st.com/post/dewitt-clinton-park-marks-125-years-with-a-volunteer-led-revamp/" target="_blank" rel="noopener">Read full story</a>
+    </article>
+
+    <footer class="footer">
+      <div>Read the local news with Pressed.</div>
+      <span>Curated for THĒ SOIRĒE community.</span>
+    </footer>
+  </main>
+</body>
+</html>
